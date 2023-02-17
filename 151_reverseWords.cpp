@@ -14,7 +14,9 @@ class Solution {
   void removeExtraSpaces(string& s) {
     int slow = 0;
     for (int i = 0; i < s.size(); ++i) {
+      // 不是空格则记录
       if (s[i] != ' ') {
+        // 在记录单词前先记录一个空格
         if (slow > 0) s[slow++] = ' ';
         while (i < s.size() && s[i] != ' ') {
           s[slow++] = s[i++];
@@ -36,7 +38,7 @@ class Solution {
     // }
     // return s;
 
-    // 使用队列的方法
+    // 使用队列的方法，后进先出达到翻转效果
     int left = 0, right = s.size() - 1;
     // 去掉字符串开头的空白字符
     while (left <= right && s[left] == ' ') ++left;
